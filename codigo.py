@@ -5,6 +5,7 @@ print("--------------------------")
 
 while True: #Ciclo infinito 
     try:
+        #Longitud
         longitud = int(input("Ingresa un número entero entre 5 y 128: ")) #Pedir dato de longitud al usuario
         if 5 <= longitud <= 128: #Condicional if que evalua si el numero esta en el rango deseado
             break #El bucle infinito termina siempre y cuando sea valido
@@ -27,8 +28,23 @@ while True:  # Ciclo infinito para validar la entrada de mayúsculas
     else:
         print("Entrada no válida. Ingresa 's' para sí o 'n' para no.")
 
-print(f"Longitud de la contraseña a generar es de: {longitud}")
-print(f"Incluir mayúsculas: {'Sí' if in_myc else 'No'}")
+# Validar si se incluyen numeros
+while True:
+    num = input("Desea utilizar numeros en la generacion de la contraseña ? (s/n): ").strip().lower()
+    if num == "s":
+        num = True
+        print("Se incluirán numeros.")
+        break
+    elif num == "n":
+        num = False
+        print("No se incluirán numeros.")
+        break
+    else:
+        print("Entrada no válida. Ingresa 's' para sí o 'n' para no.")
+
+
+# print(f"Longitud de la contraseña a generar es de: {longitud}")
+# print(f"Incluir mayúsculas: {'Sí' if in_myc else 'No'}")
 
 # num = int(input("Deseas utilizar numeros: "))
 # c_esp = input("Deseas utilizar caracteres especiales")

@@ -1,8 +1,12 @@
+import string
+import random
+import os
 def titulo():
     print("--------------------------")
     print("|Generador de contraseñas|")
     print("--------------------------")
 
+#REGLAS DEL JUEGO
 def reglas():
     print("\nReglas del Generador de Contraseñas:")
     print("- La longitud debe estar entre 5 y 128 caracteres.")
@@ -10,6 +14,58 @@ def reglas():
     print("- Las contraseñas fáciles de decir contienen solo letras.")
     print("- Las contraseñas fáciles de leer evitan caracteres confusos como '0' y 'O'.")
     print("- Se recomienda usar al menos 3 tipos de caracteres para mayor seguridad.")
+
+#FUNCION PEDIR LONGITUD
+def longitud_c():
+    while True:
+        os.system("cls") #Se limpia la consola antes de pedir la longitud
+        try:
+            longitud = int(input("Ingresa una longitud de la contraseña (5-128): "))
+            if 5<= longitud <=128:
+                return longitud #Me retorna el valor de la longitud(Solo si es valida)
+            else:
+                print("Longitud fuera de rango")
+        except:
+            print("Error: Ingresa un numero valido") #Mensaje de error en caso de ingresar un dato de tipo string
+
+
+def contraseña_f_dl():
+    longitud = longitud_c()
+    letras = string.ascii_letters #Agrega solo letras por defecto
+
+    contraseña ="" #inicializacion de la variable contraseña vacia
+
+    # Genera la contraseña
+    for _ in range(longitud):
+        contraseña += random.choice(letras)
+    print(f"Contraseña generada: {contraseña}")
+
+#FUNCION GENERAR CONTRSEÑA FACIL DE DECIR(mayusculas, minusculas y pregunta si quiere agg numeros y simbolos)
+def contraseña_f_dd():
+    longitud = longitud_c()
+    letras = string.ascii_letters #Agrega solo letras por defecto
+
+    contraseña ="" #inicializacion de la variable contraseña vacia
+
+    #Pregunta si se desean incluir números
+    agg_numeros = input("¿Quieres que incluya numeros? (s/n): ").strip().lower()
+    if agg_numeros == 's':
+        letras += string.digits  # Agrega números (0-9)
+    else:
+        print("No se agregaran numeros")
+
+    #Pregunta si se desean incluir símbolos
+    agg_simbolos = input("¿Quieres que incluya simbolos? (s/n): ").strip().lower()
+    if agg_simbolos == 's':
+        letras += string.punctuation
+    else:
+        print("No se agregaran simbolos")
+
+    # Genera la contraseña
+    for _ in range(longitud):
+        contraseña += random.choice(letras)
+    print(f"Contraseña generada: {contraseña}")
+
 
 def menu_generar_contraseña():
     """Muestra el submenú para generar contraseñas"""
@@ -27,15 +83,19 @@ def menu_generar_contraseña():
             print("\nSeleccionaste: Yo genero mi propia contraseña.")
         elif opcion == "2":
             print("\nSeleccionaste: Contraseña automática fácil de decir.")
+            contraseña_f_dl()
+            input("\nPresiona enter para continuar a las opciones de generacion de contraseña")
         elif opcion == "3":
             print("\nSeleccionaste: Contraseña automática fácil de leer.")
+            contraseña_f_dd()
+            input("\nPresiona enter para continuar a las opciones de generacion de contraseña")
         elif opcion == "4":
             print("\nSeleccionaste: Todos los caracteres.")
         elif opcion == "5":
             print("\nVolviendo al menú principal...")
             break  # Sale del submenú y vuelve al menú principal
         else:
-            print("\nOpción no válida. Inténtalo de nuevo.")
+            print("\n Opción no válida. Inténtalo de nuevo.")
 
 def menu_p():
     while True:

@@ -1,12 +1,31 @@
 # generador-c
-Programa que genera contraseñas seguras
+Generador de Contraseñas Seguras
 
-## Características
--Permite elegir la longitud de la contraseña (entre 5 y 128 caracteres).  
--Posibilidad de incluir mayúsculas, números y caracteres especiales.  
+## Descripcion
+Este proyecto es un generador de contraseñas seguras que permite crear contraseñas según diferentes criterios de seguridad.
+El usuario puede elegir entre:
+  Ingresar su propia contraseña (se evalúa su seguridad).
+Generar una contraseña automática con opciones como:
+  Fácil de decir (solo letras).
+  Fácil de leer (evita caracteres confusos).
+  Todos los caracteres (mayúsculas, minúsculas, números y símbolos).
+##Requisitos previos
+Instalar Python
+Antes de ejecutar la aplicación, debes comprobar que tienes instalado Python 3.11.9 
+Puedes verificar con python --version
 
-## Requisitos
-Para ejecutar este programa, necesitas:
-- Python 3.7 o superior.
-- Módulo `string` y `random` (ya incluidos en Python).
+##Como ejecutar la aplicacion
+-Si no tienes el codigo en tu computadora puedes clonarlo:
+git clone https://github.com/Guido-m/generador-c.git
+-Acceder a la carpeta del proyecto
+cd generador-c
+-Ejecutar la aplicacion con python codigo.py
+
+##Estructura del repositorio
+Repositorio generador-c
+diagramas # Carpeta con los diagramas de flujo del proyecto
+codigo .py # Código fuente del generador de contraseñas
+README.md # Documentación del proyecto
+
+
 

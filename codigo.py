@@ -1,10 +1,12 @@
 import string
 import random
 import os
-def titulo():
-    print("--------------------------")
-    print("|Generador de contraseñas|")
-    print("--------------------------")
+
+
+# def titulo():
+#     print("---------------------------------")
+#     print("|Generador de contraseñas seguras|")
+#     print("---------------------------------")
 
 #REGLAS DEL JUEGO
 def reglas():
@@ -18,37 +20,41 @@ def reglas():
 def limpiar_pantalla():
     os.system("cls" if os.name == "nt" else "clear") 
 
-#FUNCION PEDIR LONGITUD
+#FUNCION PEDIR LONGITUD DE LA CONTRASEÑA
 def longitud_c():
     while True:
         limpiar_pantalla()
         try:
             longitud = int(input("Ingresa una longitud de la contraseña (5-128): "))
             if 5<= longitud <=128:
-                return longitud #Me retorna el valor de la longitud(Solo si es valida)
+                return longitud #ME RETORNA EL VALOR DE LA LONGITUD SOLO SI ES VALIDA
             else:
                 print("Longitud fuera de rango")
         except:
-            print("Error: Ingresa un numero valido") #Mensaje de error en caso de ingresar un dato de tipo string
+            print("Error: Ingresa un numero valido") #MENSAJE DE ERROR EN CASO DE INGRESAR UN DATO DE TIPO STRING
 
-#Contraseña fuerte o debil
+#FUNCION QUE EVALUA SI LA CONTRASEÑA ES FUERTE, MEDIA O DEBIL
 def evaluar_seguridad(contraseña):
-    #Seguridad de la contraseña
     longitud = len(contraseña)
+    #COMPRUEBA SI LA CONTRASEÑA TIENES DIFERENTES TIPOS DE CARACTERES
     tiene_mayus = any(c.isupper() for c in contraseña)
     tiene_minus = any(c.islower() for c in contraseña)
     tiene_numeros = any(c.isdigit() for c in contraseña)
     tiene_simbolos = any(c in string.punctuation for c in contraseña)
 
+    #HACE EL CONTEO DE CUANTOS TIPOS DE CARACTERES HAY
     seg_c = sum([tiene_mayus, tiene_minus, tiene_numeros, tiene_simbolos])
 
+    #CONDICION DE SEGURIDAD
     if longitud >= 10 and seg_c >= 3:
         return " Contraseña de nivel FUERTE "
     elif 8 <= longitud < 10 and seg_c >= 2:
         return " Contraseña de nivel Medio "
     else:
         return " Contraseña de nivel DÉBIL "
-#Yo genero mi propia contraseña
+    
+
+#FUNCION QUE PERMITE AL USUARIO INGRESAR SU PROPIA CONTRASEÑA 
 def contraseña_p():
     longitud = longitud_c()
     print (f"\nIngresa una contraseña con esa longitud {longitud} caracteres ")
@@ -63,20 +69,17 @@ def contraseña_p():
             break
         else:
             print(f"La contraseña debe tener {longitud} caracteres")
-#CONTRASEÑA FÁCIL DE DECIR (Solo letras mayúsculas y minúsculas)
+#FUNCION PARA GENERAR CONTRASEÑA SOLO LETRAS(MAYUS-MINUS)
 def contraseña_f_dl():
     longitud = longitud_c()
-    letras = string.ascii_letters #Agrega solo letras por defecto
-
-    # contraseña ="" #inicializacion de la variable contraseña vacia
-
-    # Genera la contraseña
+    letras = string.ascii_letters #AGREGA SOLO LETRAS 
     contraseña = "".join(random.choice(letras) for _ in range(longitud))
+
     print(f"Contraseña generada {contraseña}")
     print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña
     input("\n Presiona enter para continuar")
 
-#FUNCION GENERAR CONTRSEÑA FACIL DE DECIR(mayusculas, minusculas y pregunta si quiere agg numeros y simbolos)
+#FUNCION GENERAR CONTRSEÑA FACIL DE DECIR(MAYUS,MINUS Y OPCIONAL NUM Y SIMB)
 def contraseña_f_dd():
     longitud = longitud_c()
     letras = string.ascii_letters #Agrega solo letras por defecto
@@ -87,11 +90,12 @@ def contraseña_f_dd():
         letras += string.punctuation
     
     contraseña = "".join(random.choice(letras) for _ in range(longitud))
+
     print(f" Contraseña generada: {contraseña}")
     print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña
     input("\nPresiona Enter para continuar")
 
-#Todos los caracteres
+#FUNION GENERAR CONTRASEÑA CON TODOS LOS CARACTERES O ELIGIR QUE OPCIONES UTILIZAR
 def contraseña_t():
     longitud = longitud_c()
     caracteres = string.ascii_letters + string.digits + string.punctuation 
@@ -112,9 +116,8 @@ def contraseña_t():
     print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña
     input("\nPresiona Enter para continuar")
 
-
+#MENU PARA SELLECIONAR EL TIPO DE CONTRASEÑA A GENERAR
 def menu_generar_contraseña():
-    #Muestra el submenú para generar contraseñas
     while True:
         limpiar_pantalla()
         print("\nOpciones para generar contraseña:")
@@ -144,6 +147,7 @@ def menu_generar_contraseña():
         else:
             print("\n Opción no válida. Inténtalo de nuevo.")
 
+#FUNCION MENU PRINCIPAL
 def menu_p():
     while True:
         limpiar_pantalla()
@@ -164,7 +168,6 @@ def menu_p():
             break  # Sale del bucle y termina el programa
         else:
             print("\nOpción no válida. Inténtalo de nuevo.")
-
 
 menu_p()
 

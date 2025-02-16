@@ -10,19 +10,19 @@ Generar una contraseña automática con opciones como:
   Fácil de leer (evita caracteres confusos).
   Todos los caracteres (mayúsculas, minúsculas, números y símbolos).
   
-##Requisitos previos
+## Requisitos previos
 -Instalar Python
 -Antes de ejecutar la aplicación, debes comprobar que tienes instalado Python 3.11.9 
 -Puedes verificar con python --version
 
-##Como ejecutar la aplicacion
+## Como ejecutar la aplicacion
 -Si no tienes el codigo en tu computadora puedes clonarlo:
 git clone https://github.com/Guido-m/generador-c.git
 -Acceder a la carpeta del proyecto
 cd generador-c
 -Ejecutar la aplicacion con python codigo.py
 
-##Estructura del repositorio
+## Estructura del repositorio
 -Repositorio generador-c
 -diagramas # Carpeta con los diagramas de flujo del proyecto
 -codigo .py # Código fuente del generador de contraseñas

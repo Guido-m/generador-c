@@ -15,10 +15,13 @@ def reglas():
     print("- Las contraseñas fáciles de leer evitan caracteres confusos como '0' y 'O'.")
     print("- Se recomienda usar al menos 3 tipos de caracteres para mayor seguridad.")
 
+def limpiar_pantalla():
+    os.system("cls" if os.name == "nt" else "clear") 
+
 #FUNCION PEDIR LONGITUD
 def longitud_c():
     while True:
-        os.system("cls") #Se limpia la consola antes de pedir la longitud
+        limpiar_pantalla()
         try:
             longitud = int(input("Ingresa una longitud de la contraseña (5-128): "))
             if 5<= longitud <=128:
@@ -28,49 +31,93 @@ def longitud_c():
         except:
             print("Error: Ingresa un numero valido") #Mensaje de error en caso de ingresar un dato de tipo string
 
+#Contraseña fuerte o debil
+def evaluar_seguridad(contraseña):
+    #Seguridad de la contraseña
+    longitud = len(contraseña)
+    tiene_mayus = any(c.isupper() for c in contraseña)
+    tiene_minus = any(c.islower() for c in contraseña)
+    tiene_numeros = any(c.isdigit() for c in contraseña)
+    tiene_simbolos = any(c in string.punctuation for c in contraseña)
 
+    seg_c = sum([tiene_mayus, tiene_minus, tiene_numeros, tiene_simbolos])
+
+    if longitud >= 10 and seg_c >= 3:
+        return " Contraseña de nivel FUERTE "
+    elif 8 <= longitud < 10 and seg_c >= 2:
+        return " Contraseña de nivel Medio "
+    else:
+        return " Contraseña de nivel DÉBIL "
+#Yo genero mi propia contraseña
+def contraseña_p():
+    longitud = longitud_c()
+    print (f"\nIngresa una contraseña con esa longitud {longitud} caracteres ")
+
+    while True:
+        contraseña = input("Ingresa tu contraseña: ")
+
+        if len(contraseña) == longitud:
+            print(f" Contraseña: {contraseña}")
+            print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña ingresada
+            input("\nPresiona Enter para continuar")
+            break
+        else:
+            print(f"La contraseña debe tener {longitud} caracteres")
+#CONTRASEÑA FÁCIL DE DECIR (Solo letras mayúsculas y minúsculas)
 def contraseña_f_dl():
     longitud = longitud_c()
     letras = string.ascii_letters #Agrega solo letras por defecto
 
-    contraseña ="" #inicializacion de la variable contraseña vacia
+    # contraseña ="" #inicializacion de la variable contraseña vacia
 
     # Genera la contraseña
-    for _ in range(longitud):
-        contraseña += random.choice(letras)
-    print(f"Contraseña generada: {contraseña}")
+    contraseña = "".join(random.choice(letras) for _ in range(longitud))
+    print(f"Contraseña generada {contraseña}")
+    print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña
+    input("\n Presiona enter para continuar")
 
 #FUNCION GENERAR CONTRSEÑA FACIL DE DECIR(mayusculas, minusculas y pregunta si quiere agg numeros y simbolos)
 def contraseña_f_dd():
     longitud = longitud_c()
     letras = string.ascii_letters #Agrega solo letras por defecto
 
-    contraseña ="" #inicializacion de la variable contraseña vacia
-
-    #Pregunta si se desean incluir números
-    agg_numeros = input("¿Quieres que incluya numeros? (s/n): ").strip().lower()
-    if agg_numeros == 's':
-        letras += string.digits  # Agrega números (0-9)
-    else:
-        print("No se agregaran numeros")
-
-    #Pregunta si se desean incluir símbolos
-    agg_simbolos = input("¿Quieres que incluya simbolos? (s/n): ").strip().lower()
-    if agg_simbolos == 's':
+    if input("¿Quieres incluir números? (s/n): ").strip().lower() == 's':
+        letras += string.digits
+    if input("¿Quieres incluir símbolos? (s/n): ").strip().lower() == 's':
         letras += string.punctuation
-    else:
-        print("No se agregaran simbolos")
+    
+    contraseña = "".join(random.choice(letras) for _ in range(longitud))
+    print(f" Contraseña generada: {contraseña}")
+    print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña
+    input("\nPresiona Enter para continuar")
 
-    # Genera la contraseña
-    for _ in range(longitud):
-        contraseña += random.choice(letras)
+#Todos los caracteres
+def contraseña_t():
+    longitud = longitud_c()
+    caracteres = string.ascii_letters + string.digits + string.punctuation 
+
+    print("\n La contraseña se generará con mayúsculas, minúsculas, números y símbolos.")
+    mod = input("¿Quieres modificar esta combinación? (s/n): ").strip().lower()
+
+    if mod == 's':
+        caracteres = string.ascii_letters
+        
+        if input("¿Incluir numeros? (s/n): ").strip().lower() == 's':
+            caracteres += string.digits
+        if input("¿Incluir simbolos? (s/n): ").strip().lower() == 's':
+            caracteres += string.punctuation
+        
+    contraseña = "".join(random.choice(caracteres) for _ in range(longitud))
     print(f"Contraseña generada: {contraseña}")
+    print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña
+    input("\nPresiona Enter para continuar")
 
 
 def menu_generar_contraseña():
-    """Muestra el submenú para generar contraseñas"""
+    #Muestra el submenú para generar contraseñas
     while True:
-        print("\nOpciones de generación:")
+        limpiar_pantalla()
+        print("\nOpciones para generar contraseña:")
         print("1. Yo genero mi propia contraseña")
         print("2. Contraseña automática fácil de decir")
         print("3. Contraseña automática fácil de leer")
@@ -81,24 +128,25 @@ def menu_generar_contraseña():
 
         if opcion == "1":
             print("\nSeleccionaste: Yo genero mi propia contraseña.")
+            contraseña_p()
         elif opcion == "2":
             print("\nSeleccionaste: Contraseña automática fácil de decir.")
             contraseña_f_dl()
-            input("\nPresiona enter para continuar a las opciones de generacion de contraseña")
         elif opcion == "3":
             print("\nSeleccionaste: Contraseña automática fácil de leer.")
             contraseña_f_dd()
-            input("\nPresiona enter para continuar a las opciones de generacion de contraseña")
         elif opcion == "4":
             print("\nSeleccionaste: Todos los caracteres.")
+            contraseña_t()
         elif opcion == "5":
-            print("\nVolviendo al menú principal...")
+            print("\nVolviendo al menú principal")
             break  # Sale del submenú y vuelve al menú principal
         else:
             print("\n Opción no válida. Inténtalo de nuevo.")
 
 def menu_p():
     while True:
+        limpiar_pantalla()
         print("\n---------------------------")
         print("|     Menu de opciones    |")
         print("---------------------------")
@@ -112,7 +160,7 @@ def menu_p():
         elif opcion == "2":
             reglas()
         elif opcion == "3":
-            print("\nSaliendo del programa...")
+            print("\nSaliendo del programa")
             break  # Sale del bucle y termina el programa
         else:
             print("\nOpción no válida. Inténtalo de nuevo.")

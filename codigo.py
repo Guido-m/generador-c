@@ -98,23 +98,65 @@ def contraseña_f_dd():
 #FUNION GENERAR CONTRASEÑA CON TODOS LOS CARACTERES O ELIGIR QUE OPCIONES UTILIZAR
 def contraseña_t():
     longitud = longitud_c()
-    caracteres = string.ascii_letters + string.digits + string.punctuation 
+    print("\nSelecciona las opciones de caracteres que deseas incluir en la contraseña.")
+    print("Debes de eligir al menos 3 opciones de las siguientes")
 
-    print("\n La contraseña se generará con mayúsculas, minúsculas, números y símbolos.")
-    mod = input("¿Quieres modificar esta combinación? (s/n): ").strip().lower()
+    while True:
+        mayus = input("¿Incluir mayúsculas? (s/n): ").strip().lower()
+        if mayus in ['s', 'n']:
+            break
+        print("Ingresa 's' para si o 'n' para no ")
 
-    if mod == 's':
-        caracteres = string.ascii_letters
-        
-        if input("¿Incluir numeros? (s/n): ").strip().lower() == 's':
-            caracteres += string.digits
-        if input("¿Incluir simbolos? (s/n): ").strip().lower() == 's':
-            caracteres += string.punctuation
-        
+    while True:
+        minus = input("¿Incluir minúsculas? (s/n): ").strip().lower()
+        if minus in ['s', 'n']:
+            break
+        print("Entrada no válida. Ingresa 's' para sí o 'n' para no.")
+
+    while True:
+        numeros = input("¿Incluir números? (s/n): ").strip().lower()
+        if numeros in ['s', 'n']:
+            break
+        print("Entrada no válida. Ingresa 's' para sí o 'n' para no.")
+
+    while True:
+        simbolos = input("¿Incluir símbolos? (s/n): ").strip().lower()
+        if simbolos in ['s', 'n']:
+            break
+        print("Entrada no válida. Ingresa 's' para sí o 'n' para no.")
+
+    #CUANTAS OPCIONES SE ESCOGIERON 
+    op_esco = 0
+    if mayus == 's':
+        op_esco += 1
+    if minus == 's':
+        op_esco += 1
+    if numeros == 's':
+        op_esco += 1
+    if simbolos == 's':
+        op_esco += 1
+    
+    if op_esco < 3:
+        print("\nTienes que escoger 3 combinaciones de caracteres obligatorias.")
+        input("Presiona Enter para intentarlo nuevamente...")
+        return contraseña_t() #FUNCION DE LOS REQUISITOS
+    
+    caracteres = ""
+    if mayus == 's':
+        caracteres += string.ascii_uppercase
+    if minus == 's':
+        caracteres += string.ascii_lowercase
+    if numeros == 's':
+        caracteres += string.digits
+    if simbolos == 's':
+        caracteres += string.punctuation
+    
+    # Generar la contraseña
     contraseña = "".join(random.choice(caracteres) for _ in range(longitud))
-    print(f"Contraseña generada: {contraseña}")
-    print(evaluar_seguridad(contraseña))  # Evaluar seguridad de la contraseña
+    print(f"\nContraseña generada: {contraseña}")
+    print(evaluar_seguridad(contraseña))
     input("\nPresiona Enter para continuar")
+    
 
 #MENU PARA SELLECIONAR EL TIPO DE CONTRASEÑA A GENERAR
 def menu_generar_contraseña():

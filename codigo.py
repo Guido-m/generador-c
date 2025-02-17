@@ -46,12 +46,12 @@ def evaluar_seguridad(contraseña):
     seg_c = sum([tiene_mayus, tiene_minus, tiene_numeros, tiene_simbolos])
 
     #CONDICION DE SEGURIDAD
-    if longitud >= 10 and seg_c >= 3:
-        return " Contraseña de nivel FUERTE "
+    if longitud >= 10 and seg_c >= 3: 
+        return " Contraseña de nivel FUERTE " # Es fuerte si tiene al menos 10 caracteres y usa 3 o más tipos de caracteres
     elif 8 <= longitud < 10 and seg_c >= 2:
-        return " Contraseña de nivel Medio "
+        return " Contraseña de nivel Medio "  # Es moderada si tiene entre 8 y 9 caracteres y al menos 2 tipos de caracteres
     else:
-        return " Contraseña de nivel DÉBIL "
+        return " Contraseña de nivel DÉBIL "  # Es débil si no cumple con los criterios anteriores
     
 
 #FUNCION QUE PERMITE AL USUARIO INGRESAR SU PROPIA CONTRASEÑA 
@@ -162,7 +162,9 @@ def menu_p():
         if opcion == "1":
             menu_generar_contraseña()
         elif opcion == "2":
+            limpiar_pantalla()  # Limpia la pantalla antes de mostrar las reglas
             reglas()
+            input("\nPresiona Enter para volver al menú")
         elif opcion == "3":
             print("\nSaliendo del programa")
             break  # Sale del bucle y termina el programa

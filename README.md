@@ -23,13 +23,11 @@ Este proyecto ayuda a evitar el uso de contraseñas débiles y fáciles de adivi
 
 ## ⚡ Características
 
-✔ **Modos de generación de contraseñas:**
-   - **Personalizada** → El usuario ingresa su propia contraseña y el programa evalúa su seguridad.
-   - **Automática con opciones personalizadas**:
-     - 🔡 **Yo genero mi propia contraseña** → El usuario puede crear su propia contraseña segura.
-     - 🔡 **Fácil de decir** → Solo usa letras para una mejor pronunciación.
-     - 🔠 **Fácil de leer** → Evita caracteres confusos como "0" y "O".
-     - 🔢 **Todos los caracteres** → Mezcla mayúsculas, minúsculas, números y símbolos para máxima seguridad.
+✔ **Modos de generación de contraseñas:**  
+   - 🔡 **Yo genero mi propia contraseña** → El usuario puede crear su propia contraseña segura.  
+   - 🔡 **Fácil de decir** → Solo usa letras para una mejor pronunciación.  
+   - 🔠 **Fácil de leer** → Evita caracteres confusos como "0" y "O".  
+   - 🔢 **Todos los caracteres** → Mezcla mayúsculas, minúsculas, números y símbolos para máxima seguridad.  
 
 ✔ **Evaluación de seguridad:**  
    - Clasifica las contraseñas en **débil, media o fuerte** según su composición.  
@@ -51,37 +49,46 @@ Este proyecto ayuda a evitar el uso de contraseñas débiles y fáciles de adivi
 
 Para ejecutar la aplicación, es necesario tener instalado **Python 3.11.9** o una versión posterior. Puedes verificarlo ejecutando:
 
-
+```bash
 python --version
----
+```
 
+Si Python no está instalado, puedes descargarlo desde la página oficial: [Python.org](https://www.python.org/downloads/).
+
+---
 
 ## 🚀 Instalación y ejecución
 
-🔹 Clonar el repositorio
+### 🔹 Clonar el repositorio  
 Si aún no tienes el código en tu computadora, clónalo con el siguiente comando:
 
+```bash
 git clone https://github.com/Guido-m/generador-c.git
+```
 
-
-🔹 Acceder a la carpeta del proyecto
-
+### 🔹 Acceder a la carpeta del proyecto  
+```bash
 cd generador-c
+```
 
-🔹 Ejecutar el programa
-
+### 🔹 Ejecutar el programa  
+```bash
 python codigo.py
+```
+
 ---
 
 ## 📂 Estructura del repositorio
 
+El proyecto está organizado de la siguiente manera:
+
+```
 generador-c/
-│── diagramas/          # Diagramas de flujo y arquitectura del proyecto
-│── codigo.py           # Código fuente del generador de contraseñas
-│── README.md           # Documentación del proyecto
+├── 📁 diagramas/        # Contiene los diagramas de flujo y arquitectura del proyecto
+├── 📄 codigo.py         # Código fuente del generador de contraseñas
+├── 📄 README.md         # Documentación del proyecto
+```
 
 ---
 
-
----
 

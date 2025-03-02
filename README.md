@@ -9,6 +9,7 @@ Un programa en **Python** diseñado para generar contraseñas seguras y personal
 2. [Características](#-características)
 3. [Requisitos previos](#-requisitos-previos)
 4. [Instalación y ejecución](#-instalación-y-ejecución)
+5. [Estructura del repositorio](#-estructura-del-repositorio)
 
 ---
 
@@ -70,6 +71,17 @@ cd generador-c
 🔹 Ejecutar el programa
 
 python codigo.py
+---
+
+## 📂 Estructura del repositorio
+
+generador-c/
+│── diagramas/          # Diagramas de flujo y arquitectura del proyecto
+│── codigo.py           # Código fuente del generador de contraseñas
+│── README.md           # Documentación del proyecto
+
+---
+
 
 ---
 

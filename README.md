@@ -31,6 +31,7 @@ Este proyecto ayuda a evitar el uso de contraseñas débiles y fáciles de adivi
 ✔ **Modos de generación de contraseñas:**
    - **Personalizada** → El usuario ingresa su propia contraseña y el programa evalúa su seguridad.
    - **Automática con opciones personalizadas**:
+     - 🔡 **Yo genero mi propia contraseña** → El usuario puede crear su propia contraseña segura.
      - 🔡 **Fácil de decir** → Solo usa letras para una mejor pronunciación.
      - 🔠 **Fácil de leer** → Evita caracteres confusos como "0" y "O".
      - 🔢 **Todos los caracteres** → Mezcla mayúsculas, minúsculas, números y símbolos para máxima seguridad.

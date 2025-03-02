@@ -199,6 +199,7 @@ def menu_generar_contraseña():
             break  # Sale del submenú y vuelve al menú principal
         else:
             print("\n Opción no válida. Inténtalo de nuevo.")
+            input("Presiona Enter para continuar...")
 
 #FUNCION MENU PRINCIPAL
 #ES EL MENÚ PRINCIPAL QUE PERMITE AL USUARIO ELEGIR ENTRE GENERAR UNA CONTRASEÑA, VER LAS REGLAS O SALIR DEL PROGRAMA
@@ -224,6 +225,7 @@ def menu_p():
             break  # FINALIZA EL PROGRAMA
         else:
             print("\nOpción no válida. Inténtalo de nuevo.")
+            input("Presiona Enter para continuar...")
 
 menu_p() # INICIO DEL PROGRAMA: SE LLAMA AL MENÚ PRINCIPAL PARA COMENZAR LA INTERACCIÓN CON EL USUARIO.
 

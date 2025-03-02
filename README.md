@@ -84,9 +84,11 @@ El proyecto está organizado de la siguiente manera:
 
 ```
 generador-c/
-├── 📁 diagramas/        # Contiene los diagramas de flujo y arquitectura del proyecto
-├── 📄 codigo.py         # Código fuente del generador de contraseñas
-├── 📄 README.md         # Documentación del proyecto
+├── 📁 Diagramas-mejorados/                                        # Contiene los diagramas de flujo y arquitectura del proyecto
+├── 📁 diagramas/                                                  # Contiene los diagramas de flujo y arquitectura del proyecto
+├── 📄 codigo.py                                                   # Código fuente del generador de contraseñas
+├── 📄 README.md                                                   # Documentación del proyecto
+├── 📄 Generador de contraseñas-diapositivas.pdf                   # Documentación del proyecto
 ```
 
 ---

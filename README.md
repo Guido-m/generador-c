@@ -9,12 +9,6 @@ Un programa en **Python** diseñado para generar contraseñas seguras y personal
 2. [Características](#-características)
 3. [Requisitos previos](#-requisitos-previos)
 4. [Instalación y ejecución](#-instalación-y-ejecución)
-5. [Modo de uso](#-modo-de-uso)
-6. [Estructura del repositorio](#-estructura-del-repositorio)
-7. [Ejemplo de uso](#-ejemplo-de-uso)
-8. [Posibles mejoras](#-posibles-mejoras)
-9. [Licencia](#-licencia)
-10. [Autor](#-autor)
 
 ---
 
@@ -67,6 +61,7 @@ python --version
 Si aún no tienes el código en tu computadora, clónalo con el siguiente comando:
 
 git clone https://github.com/Guido-m/generador-c.git
+
 
 🔹 Acceder a la carpeta del proyecto
 

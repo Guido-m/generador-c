@@ -1,32 +1,60 @@
-# generador-c
-Generador de Contraseñas Seguras
+# 🔐 Generador de Contraseñas Seguras
 
-## Descripcion
--Este proyecto es un generador de contraseñas seguras que permite crear contraseñas según diferentes criterios de seguridad.
-El usuario puede elegir entre:
-  Ingresar su propia contraseña (se evalúa su seguridad).
-Generar una contraseña automática con opciones como:
-  Fácil de decir (solo letras).
-  Fácil de leer (evita caracteres confusos).
-  Todos los caracteres (mayúsculas, minúsculas, números y símbolos).
-  
-## Requisitos previos
--Instalar Python
--Antes de ejecutar la aplicación, debes comprobar que tienes instalado Python 3.11.9 
--Puedes verificar con python --version
+Un programa en **Python** diseñado para generar contraseñas seguras y personalizadas, permitiendo mejorar la protección de cuentas y datos personales frente a ataques cibernéticos.
 
-## Como ejecutar la aplicacion
--Si no tienes el codigo en tu computadora puedes clonarlo:
-git clone https://github.com/Guido-m/generador-c.git
--Acceder a la carpeta del proyecto
-cd generador-c
--Ejecutar la aplicacion con python codigo.py
+---
 
-## Estructura del repositorio
--Repositorio generador-c
--diagramas # Carpeta con los diagramas de flujo del proyecto
--codigo .py # Código fuente del generador de contraseñas
--README.md # Documentación del proyecto
+## 📖 Índice
+1. [Descripción](#-descripción)
+2. [Características](#-características)
+3. [Requisitos previos](#-requisitos-previos)
+4. [Instalación y ejecución](#-instalación-y-ejecución)
+5. [Modo de uso](#-modo-de-uso)
+6. [Estructura del repositorio](#-estructura-del-repositorio)
+7. [Ejemplo de uso](#-ejemplo-de-uso)
+8. [Posibles mejoras](#-posibles-mejoras)
+9. [Licencia](#-licencia)
+10. [Autor](#-autor)
 
+---
 
+## 📌 Descripción
+
+El **Generador de Contraseñas Seguras** es una herramienta en **Python** que permite generar claves seguras y evaluar su nivel de fortaleza. Su diseño permite al usuario elegir entre diferentes tipos de contraseñas, asegurando que cumplan con criterios de seguridad esenciales.
+
+Este proyecto ayuda a evitar el uso de contraseñas débiles y fáciles de adivinar, protegiendo información sensible ante ataques de fuerza bruta o ingeniería social.
+
+---
+
+## ⚡ Características
+
+✔ **Modos de generación de contraseñas:**
+   - **Personalizada** → El usuario ingresa su propia contraseña y el programa evalúa su seguridad.
+   - **Automática con opciones personalizadas**:
+     - 🔡 **Fácil de decir** → Solo usa letras para una mejor pronunciación.
+     - 🔠 **Fácil de leer** → Evita caracteres confusos como "0" y "O".
+     - 🔢 **Todos los caracteres** → Mezcla mayúsculas, minúsculas, números y símbolos para máxima seguridad.
+
+✔ **Evaluación de seguridad:**  
+   - Clasifica las contraseñas en **débil, media o fuerte** según su composición.  
+   - Recomienda mejoras en caso de que la contraseña sea insegura.  
+
+✔ **Interfaz en consola intuitiva:**  
+   - Interacción amigable con el usuario mediante un sistema de menú.  
+   - Solicita parámetros de personalización y genera la contraseña en segundos.  
+
+✔ **Compatible con Windows, Linux y macOS.**  
+   - Utiliza `os.system("cls" if os.name == "nt" else "clear")` para limpiar la consola según el sistema operativo.  
+
+✔ **Código limpio y modular:**  
+   - Organizado en funciones reutilizables para facilitar mejoras futuras.  
+
+---
+
+## 🔧 Requisitos previos
+
+Para ejecutar la aplicación, es necesario tener instalado **Python 3.11.9** o una versión posterior. Puedes verificarlo ejecutando:
+
+```bash
+python --version
 

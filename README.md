@@ -65,10 +65,15 @@ python --version
 
 🔹 Clonar el repositorio
 Si aún no tienes el código en tu computadora, clónalo con el siguiente comando:
+
 git clone https://github.com/Guido-m/generador-c.git
+
 🔹 Acceder a la carpeta del proyecto
+
 cd generador-c
+
 🔹 Ejecutar el programa
+
 python codigo.py
 
 ---
